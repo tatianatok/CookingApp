@@ -25,5 +25,20 @@ public class EngridientsServiceImpl implements IngridientsService {
     public Ingridients getIngridient(Long idIngridient) {
         return ingridient.get(idIngridient);
     }
+
+    @Override
+    public Map<Long, Ingridients> getAllIngridient() {
+        return ingridient;
+    }
+
+    @Override
+    public Ingridients putIngridient(Long idIngridient, Ingridients ingridient) {
+        return ingridient;
+    }
+
+    @Override
+    public boolean deleteIngridient(Long idIngridient) {
+        return ingridient.remove(idIngridient) != null;
+    }
 }
 

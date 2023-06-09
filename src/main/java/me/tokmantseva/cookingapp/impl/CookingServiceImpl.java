@@ -11,16 +11,31 @@ import java.util.Map;
 public class CookingServiceImpl implements CookingService {
 
     private final Map<Long, Recipe> recipes = new HashMap<>();
-    private Long generatedRecipeNumber = 1L;
+    private Long recipeId = 1L;
 
     @Override
     public Recipe addNewRecipe(Recipe recipe) {
-        recipes.put(generatedRecipeNumber, recipe);
-        generatedRecipeNumber++;
+        recipes.put(recipeId, recipe);
+        recipeId++;
         return recipe;
     }
     @Override
-    public Recipe getRecipe(Long recipeNumber) {
-        return recipes.get(recipeNumber);
+    public Recipe getRecipe(Long recipeId) {
+        return recipes.get(recipeId);
+    }
+
+    @Override
+    public Map<Long, Recipe> getAllRecipe() {
+        return recipes;
+    }
+
+    @Override
+    public Recipe putRecipe(Long recipeId, Recipe recipe) {
+        return recipe;
+    }
+
+    @Override
+    public boolean deleteRecipe(Long recipeId) {
+        return recipes.remove(recipeId) != null;
     }
 }
